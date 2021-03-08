@@ -1,8 +1,7 @@
 import React from "react";
-import { FaCheck } from "react-icons/fa";
 import { InputForm } from "./InputForm";
-import { RiAlertLine } from "react-icons/ri";
 import { ButtonForm } from "./ButtonForm";
+import Icon from "./Icon";
 
 export function Form() {
   const saveEntry = (event: MouseEvent) => {
@@ -14,7 +13,7 @@ export function Form() {
     <div className="sans-serif w-90  black-80 mw6 center relative cover bg-top mt2">
       <div className="relative pa4 pa5-m">
         <div className="tracked  mb4 pv2 tc bg-gold">
-          <RiAlertLine /> Please fill the details before you submit
+          <Icon type="alert" /> Please fill the details before you submit
         </div>
         <form id="addDessert" className="">
           <InputForm name="Dessert name" type="text" required />
@@ -27,7 +26,7 @@ export function Form() {
             action={saveEntry}
             classname="input-reset w-100 light-gray br2 tracked pv2 ph2 pointer bg-dark-green hover-bg-blue bn"
           >
-            <FaCheck />
+            <Icon type="check" />
           </ButtonForm>
         </form>
       </div>

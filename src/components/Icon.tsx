@@ -1,31 +1,48 @@
-import React, {ReactElement} from "react";
+import React, { ReactElement } from "react";
 import { IconContext } from "react-icons/lib";
-import { BiPlus, BiReset, BiTrash } from 'react-icons/bi';
+import { RiAlertLine } from "react-icons/ri";
+import { FaCheck } from "react-icons/fa";
+import { BiPlus, BiReset, BiTrash } from "react-icons/bi";
 
 interface ButtonFormProps {
-    type?: string
-  styles?: IconContext,
+  type?: string;
+  styles?: IconContext;
 }
 interface SwitchIconProps {
-    type?: string
-  children:  React.ReactElement<HTMLButtonElement>[] ,
+  type?: string;
+  children: React.ReactElement<HTMLButtonElement>[];
 }
 
-const Switch = (props:SwitchIconProps):any  => {
-    const { type, children } = props
-    return children.find((child:any) => {
-      return child.props.id === type
-    })      
-  }
+const Switch = (props: SwitchIconProps): any => {
+  const { type, children } = props;
+  return children.find((child: any) => {
+    return child.props.id === type;
+  });
+};
 
-export default function Icon({type="", styles={}}:ButtonFormProps):ReactElement {
+export default function Icon({
+  type = "",
+  styles = {},
+}: ButtonFormProps): ReactElement {
   return (
     <IconContext.Provider value={styles}>
-       <Switch type={type}>
-            <span id="plus"><BiPlus /></span>
-            <span id="reset"><BiReset /></span>
-            <span id="trash"><BiTrash /></span>
-        </Switch>
-  </IconContext.Provider>
+      <Switch type={type}>
+        <span id="plus">
+          <BiPlus />
+        </span>
+        <span id="reset">
+          <BiReset />
+        </span>
+        <span id="trash">
+          <BiTrash />
+        </span>
+        <span id="check">
+          <FaCheck />
+        </span>
+        <span id="alert">
+          <RiAlertLine />
+        </span>
+      </Switch>
+    </IconContext.Provider>
   );
 }
